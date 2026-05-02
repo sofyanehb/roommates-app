@@ -1,11 +1,11 @@
 <?php
-require_once __DIR__ . '/php/functions.php';
+require_once __DIR__ . '/../config.php';
 require_guest('dashboard.php');
 
 $pageTitle = 'Register | Roommates App';
 $activePage = 'register';
 $selectedGender = old('gender', 'Male');
-require_once __DIR__ . '/partials/header.php';
+require_once __DIR__ . '/../includes/header.php';
 ?>
 <div class="row justify-content-center">
   <div class="col-lg-8 col-xl-7">
@@ -13,7 +13,7 @@ require_once __DIR__ . '/partials/header.php';
       <div class="section-kicker mb-2">Create account</div>
       <h1 class="h2 mb-3">Register to start publishing roommate listings.</h1>
       <p class="copy-muted mb-4">Fill in your profile details. The password is hashed before it is stored in the database.</p>
-      <form action="php/register_user.php" method="post" class="row g-3">
+      <form action="../php/register_user.php" method="post" class="row g-3">
         <div class="col-md-6">
           <label class="form-label" for="name">Full name</label>
           <input class="form-control" id="name" name="name" type="text" value="<?= e(old('name')) ?>" required>
@@ -49,4 +49,4 @@ require_once __DIR__ . '/partials/header.php';
     </div>
   </div>
 </div>
-<?php require_once __DIR__ . '/partials/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>

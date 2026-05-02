@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/php/functions.php';
+require_once __DIR__ . '/../config.php';
 require_login();
 
 $pageTitle = 'Profile | Roommates App';
@@ -13,7 +13,7 @@ $verificationStmt = $pdo->prepare('SELECT id, document_url, note, status, create
 $verificationStmt->execute([current_user_id()]);
 $verificationRequest = $verificationStmt->fetch();
 
-require_once __DIR__ . '/partials/header.php';
+require_once __DIR__ . '/../includes/header.php';
 ?>
 <section class="hero-panel p-4 p-lg-5 mb-4">
   <div class="row g-4 align-items-center position-relative" style="z-index: 1;">
@@ -36,7 +36,7 @@ require_once __DIR__ . '/partials/header.php';
   <div class="col-lg-7">
     <div class="surface-card p-4 p-lg-5 h-100">
       <div class="section-kicker mb-2">Compatibility preferences</div>
-      <form method="post" action="php/update_profile.php" class="row g-3">
+      <form method="post" action="../php/update_profile.php" class="row g-3">
         <input type="hidden" name="_csrf" value="<?= e(csrf_token()) ?>">
         <div class="col-md-6">
           <label class="form-label" for="sleep_schedule">Sleep schedule</label>
@@ -79,7 +79,7 @@ require_once __DIR__ . '/partials/header.php';
   <div class="col-lg-5">
     <div class="surface-card p-4 mb-4">
       <div class="section-kicker mb-2">Subscription plans</div>
-      <form method="post" action="php/change_plan.php" class="d-grid gap-3">
+      <form method="post" action="../php/change_plan.php" class="d-grid gap-3">
         <input type="hidden" name="_csrf" value="<?= e(csrf_token()) ?>">
         <div class="feature-card p-3">
           <input type="radio" class="form-check-input me-2" name="plan_tier" value="free" id="planFree" <?= $user['plan_tier'] === 'free' ? 'checked' : '' ?>>
@@ -102,7 +102,7 @@ require_once __DIR__ . '/partials/header.php';
 
     <div class="surface-card p-4">
       <div class="section-kicker mb-2">Verification request</div>
-      <form method="post" action="php/verification_request_action.php" class="d-grid gap-3">
+      <form method="post" action="../php/verification_request_action.php" class="d-grid gap-3">
         <input type="hidden" name="_csrf" value="<?= e(csrf_token()) ?>">
         <input type="url" class="form-control" name="document_url" placeholder="Document link (Google Drive, etc.)" required>
         <textarea class="form-control" name="note" rows="3" placeholder="Optional note for reviewer"></textarea>
@@ -115,4 +115,4 @@ require_once __DIR__ . '/partials/header.php';
     </div>
   </div>
 </div>
-<?php require_once __DIR__ . '/partials/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>

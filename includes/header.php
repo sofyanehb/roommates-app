@@ -1,10 +1,10 @@
 <?php
-require_once __DIR__ . '/../php/functions.php';
+require_once __DIR__ . '/../config.php';
 
 $pageTitle = $pageTitle ?? 'Roommates App';
 $activePage = $activePage ?? '';
 $flashes = get_flashes();
-$cssVersion = @filemtime(__DIR__ . '/../assets/css/styles.css') ?: time();
+$cssVersion = @filemtime(__DIR__ . '/../css/styles.css') ?: time();
 $notificationCount = 0;
 if (is_logged_in()) {
   $notificationCount = unread_notification_count($pdo, (int)current_user_id());
@@ -103,7 +103,7 @@ if (is_logged_in()) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/css/styles.css?v=<?= (int)$cssVersion ?>" rel="stylesheet" />
+    <link href="<?= ASSETS_URL ?>/css/styles.css?v=<?= (int)$cssVersion ?>" rel="stylesheet" />
   </head>
 
   <body class="app-shell">
@@ -141,7 +141,7 @@ if (is_logged_in()) {
             <?php endif; ?>
             <li class="nav-item"><span class="nav-link disabled" aria-disabled="true">Hi, <?= e(current_user_name()) ?></span></li>
             <li class="nav-item">
-              <form method="post" action="php/logout.php" class="m-0">
+              <form method="post" action="../php/logout.php" class="m-0">
                 <input type="hidden" name="_csrf" value="<?= e(csrf_token()) ?>" />
                 <button type="submit" class="nav-link text-warning border-0 bg-transparent">Logout</button>
               </form>

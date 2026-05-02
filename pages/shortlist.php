@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/php/functions.php';
+require_once __DIR__ . '/../config.php';
 require_login();
 
 $pageTitle = 'Shortlist | Roommates App';
@@ -18,7 +18,7 @@ $savedStmt = $pdo->prepare('SELECT id, city, budget_max, created_at FROM saved_s
 $savedStmt->execute([current_user_id()]);
 $savedSearches = $savedStmt->fetchAll();
 
-require_once __DIR__ . '/partials/header.php';
+require_once __DIR__ . '/../includes/header.php';
 ?>
 <section class="row g-4">
   <div class="col-lg-8">
@@ -40,7 +40,7 @@ require_once __DIR__ . '/partials/header.php';
             <div class="d-flex gap-2">
               <a class="btn btn-sm btn-accent" href="listing.php?id=<?= (int)$fav['id'] ?>">View details</a>
               <a class="btn btn-sm btn-outline-dark" href="chat.php?receiver_id=<?= (int)$fav['user_id'] ?>">Contact</a>
-              <form method="post" action="php/toggle_favorite.php" class="m-0">
+              <form method="post" action="../php/toggle_favorite.php" class="m-0">
                 <input type="hidden" name="_csrf" value="<?= e(csrf_token()) ?>">
                 <input type="hidden" name="listing_id" value="<?= (int)$fav['id'] ?>">
                 <input type="hidden" name="redirect_to" value="shortlist.php">
@@ -56,7 +56,7 @@ require_once __DIR__ . '/partials/header.php';
     <div class="surface-card p-4 h-100">
       <div class="section-kicker mb-2">Saved searches</div>
       <p class="copy-muted">Get alerts when a new listing matches your city and budget preferences.</p>
-      <form method="post" action="php/save_search.php" class="d-grid gap-2 mb-3">
+      <form method="post" action="../php/save_search.php" class="d-grid gap-2 mb-3">
         <input type="hidden" name="_csrf" value="<?= e(csrf_token()) ?>">
         <input type="hidden" name="redirect_to" value="shortlist.php">
         <input class="form-control" name="city" placeholder="City" required>
@@ -74,4 +74,4 @@ require_once __DIR__ . '/partials/header.php';
     </div>
   </div>
 </section>
-<?php require_once __DIR__ . '/partials/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>

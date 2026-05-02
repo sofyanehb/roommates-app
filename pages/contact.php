@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/php/functions.php';
+require_once __DIR__ . '/../config.php';
 require_login();
 
 $pageTitle = 'Contact | Roommates App';
@@ -18,7 +18,7 @@ $usersStmt = $pdo->prepare('SELECT u.id, u.name, u.city
 $usersStmt->execute([current_user_id(), current_user_id(), current_user_id()]);
 $users = $usersStmt->fetchAll();
 
-require_once __DIR__ . '/partials/header.php';
+require_once __DIR__ . '/../includes/header.php';
 ?>
 <div class="row g-4">
   <div class="col-lg-7">
@@ -32,7 +32,7 @@ require_once __DIR__ . '/partials/header.php';
           <a href="chat.php?receiver_id=<?= $receiverId ?>" class="btn btn-ghost">Open this thread</a>
         <?php endif; ?>
       </div>
-      <form action="php/contact_action.php" method="post" class="row g-3">
+      <form action="../php/contact_action.php" method="post" class="row g-3">
         <div class="col-12">
           <label class="form-label" for="receiver_id">Receiver</label>
           <select class="form-select" id="receiver_id" name="receiver_id" required>
@@ -75,4 +75,4 @@ require_once __DIR__ . '/partials/header.php';
     </div>
   </div>
 </div>
-<?php require_once __DIR__ . '/partials/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>

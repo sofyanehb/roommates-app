@@ -25,7 +25,7 @@
                 <a href="chat.php">Chat</a>
                 <a href="profile.php">Profile</a>
                 <a href="contact.php">Contact</a>
-                <form method="post" action="php/logout.php" class="m-0">
+                <form method="post" action="../php/logout.php" class="m-0">
                   <input type="hidden" name="_csrf" value="<?= e(csrf_token()) ?>">
                   <button type="submit" class="footer-link-button">Logout</button>
                 </form>
@@ -44,9 +44,9 @@
       </div>
     </footer>
     </main>
-    <?php $jsVersion = @filemtime(__DIR__ . '/../assets/js/app.js') ?: time(); ?>
+    <?php $jsVersion = @filemtime(__DIR__ . '/../js/app.js') ?: time(); ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/app.js?v=<?= (int)$jsVersion ?>"></script>
+    <script src="<?= ASSETS_URL ?>/js/app.js?v=<?= (int)$jsVersion ?>"></script>
     </body>
 
     </html>

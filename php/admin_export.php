@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/functions.php';
-require_admin('../dashboard.php', '../login.php');
-require_post('../admin.php');
-require_csrf('../admin.php');
+require_once __DIR__ . '/../config.php';
+require_admin('../pages/dashboard.php', '../pages/login.php');
+require_post('../pages/admin.php');
+require_csrf('../pages/admin.php');
 
 header('Content-Type: text/csv; charset=utf-8');
 header('Content-Disposition: attachment; filename="roommates_analytics_' . date('Ymd_His') . '.csv"');

@@ -1,30 +1,9 @@
 <?php
 declare(strict_types=1);
 
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
-
-date_default_timezone_set('UTC');
-
-$dbHost = getenv('DB_HOST') ?: '127.0.0.1';
-$dbName = getenv('DB_NAME') ?: 'roommates_db';
-$dbUser = getenv('DB_USER') ?: 'root';
-$dbPass = getenv('DB_PASS') ?: '';
-$dbCharset = 'utf8mb4';
-
-$dsn = "mysql:host={$dbHost};dbname={$dbName};charset={$dbCharset}";
-
-try {
-    $pdo = new PDO($dsn, $dbUser, $dbPass, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,
-    ]);
-} catch (PDOException $e) {
-    http_response_code(500);
-    exit('Database connection failed.');
-}
+// Helper functions only. Session start, timezone and PDO
+// are initialized in config.php so this file avoids side-effects
+// and uses injected/explicit PDO parameters for DB access.
 
 function e(string $value): string
 {

@@ -1,14 +1,14 @@
 <?php
-require_once __DIR__ . '/php/functions.php';
+require_once __DIR__ . '/../config.php';
 
 $overview = get_business_overview($pdo);
 
 $pageTitle = 'Business Plan | Roommates App';
 $activePage = 'business_plan';
-require_once __DIR__ . '/partials/header.php';
+require_once __DIR__ . '/../includes/header.php';
 ?>
-<section class="hero-panel p-4 p-lg-5 mb-4 mb-lg-5">
-  <div class="row align-items-center g-4 position-relative" style="z-index: 1;">
+<section class="hero-panel p-lg-5 mb-lg-5 mb-4 p-4">
+  <div class="row align-items-center g-4 position-relative" style="z-index: 1">
     <div class="col-lg-8">
       <div class="section-kicker mb-3">Business plan summary</div>
       <h1 class="display-5 fw-bold mb-3">A focused roommate marketplace for student housing.</h1>
@@ -36,18 +36,18 @@ require_once __DIR__ . '/partials/header.php';
   </div>
 </section>
 
-<section class="row g-4 mb-4 mb-lg-5">
+<section class="row g-4 mb-lg-5 mb-4">
   <div class="col-lg-8">
-    <div class="surface-card p-4 p-lg-5 h-100">
+    <div class="surface-card p-lg-5 h-100 p-4">
       <div class="section-kicker mb-2">Opportunity</div>
       <h2 class="h2 mb-3">The market problem is simple and visible.</h2>
       <p class="copy-muted mb-0">Students still find roommates through unstructured social posts, private messages, and fragmented group chats. That creates low trust, wasted time, and weak matching. Roommates App provides a centralized, searchable, and session-protected alternative.</p>
     </div>
   </div>
   <div class="col-lg-4">
-    <div class="surface-card p-4 h-100">
+    <div class="surface-card h-100 p-4">
       <div class="section-kicker mb-2">Target users</div>
-      <ul class="list-unstyled d-grid gap-3 mb-0 copy-muted">
+      <ul class="list-unstyled d-grid copy-muted mb-0 gap-3">
         <li>Students looking for shared accommodation.</li>
         <li>Room owners needing structured visibility.</li>
         <li>Users who want city and budget-based filtering.</li>
@@ -56,7 +56,7 @@ require_once __DIR__ . '/partials/header.php';
   </div>
 </section>
 
-<section class="row g-4 mb-4 mb-lg-5">
+<section class="row g-4 mb-lg-5 mb-4">
   <div class="col-md-4">
     <div class="feature-card h-100 p-4">
       <div class="badge-soft mb-3">Revenue model</div>
@@ -80,8 +80,8 @@ require_once __DIR__ . '/partials/header.php';
   </div>
 </section>
 
-<section class="surface-card p-4 p-lg-5 mb-4 mb-lg-5">
-  <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+<section class="surface-card p-lg-5 mb-lg-5 mb-4 p-4">
+  <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
     <div>
       <div class="section-kicker mb-2">Key metrics</div>
       <h2 class="h3 mb-0">What investors or teachers can quickly understand.</h2>
@@ -116,9 +116,9 @@ require_once __DIR__ . '/partials/header.php';
   </div>
 </section>
 
-<section class="row g-4 mb-4 mb-lg-5">
+<section class="row g-4 mb-lg-5 mb-4">
   <div class="col-lg-7">
-    <div class="surface-card p-4 p-lg-5 h-100">
+    <div class="surface-card p-lg-5 h-100 p-4">
       <div class="section-kicker mb-2">Roadmap</div>
       <h2 class="h3 mb-3">A realistic next-phase plan.</h2>
       <div class="d-grid gap-3">
@@ -138,10 +138,10 @@ require_once __DIR__ . '/partials/header.php';
     </div>
   </div>
   <div class="col-lg-5">
-    <div class="surface-card p-4 h-100">
+    <div class="surface-card h-100 p-4">
       <div class="section-kicker mb-2">Go-to-market</div>
       <h2 class="h4 mb-3">How the platform can spread.</h2>
-      <ul class="list-unstyled d-grid gap-3 mb-0 copy-muted">
+      <ul class="list-unstyled d-grid copy-muted mb-0 gap-3">
         <li>Campus ambassadors and student communities.</li>
         <li>Social ads targeted by city and university.</li>
         <li>Referral incentives for listing creators.</li>
@@ -151,8 +151,8 @@ require_once __DIR__ . '/partials/header.php';
   </div>
 </section>
 
-<section class="surface-card p-4 p-lg-5">
-  <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+<section class="surface-card p-lg-5 p-4">
+  <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
     <div>
       <div class="section-kicker mb-2">Business case</div>
       <h2 class="h3 mb-0">The project already looks like a product, not just a school exercise.</h2>
@@ -161,4 +161,4 @@ require_once __DIR__ . '/partials/header.php';
   </div>
   <p class="copy-muted mb-0">The current implementation gives you a presentable narrative for a business plan: a clear problem, a simple product, measurable user activity, and obvious expansion paths for monetization and moderation.</p>
 </section>
-<?php require_once __DIR__ . '/partials/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>

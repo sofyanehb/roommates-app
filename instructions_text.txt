@@ -1,0 +1,122 @@
+📋  INSTRUCTIONS  
+Organisation & Remise du Livrable — Mini Projet Développement Web 
+ 
+ 
+⚠️  LISEZ CE DOCUMENT EN ENTIER AVANT DE COMMENCER À PRÉPARER VOTRE LIVRABLE 
+ 
+1.  VUE D'ENSEMBLE DU LIVRABLE 
+ 
+Votre livrable final est composé de deux parties obligatoires : 
+ 
+📁  PARTIE 1 
+Dossier du projet 
+Code source organisé + base de données 
+📄  PARTIE 2 
+Dossier /doc 
+Rapport PDF + captures + diagrammes 
+ 
+ 
+2.  ARCHITECTURE OBLIGATOIRE DES DOSSIERS 
+ 
+📌  Respectez exactement cette arborescence. Les noms de dossiers sont en minuscules, sans espaces 
+ni accents. 
+ 
+Fichier / Dossier Description / Contenu attendu 
+📁 NOM_DU_PROJET_Filiere/ Dossier racine — nommez-le avec le nom de 
+votre projet et filière 
+    📄 index.php Page d'accueil principale de l'application 
+    ⚙️ config.php Connexion BDD, constantes globales (inclure 
+partout) 
+    📁 css/ Feuilles de style personnalisées (.css 
+uniquement) 
+    📁 bootstrap/ Fichiers Bootstrap si en Local 
+    📁 js/ Scripts JavaScript  
+    📁 images/ Toutes les images utilisées dans le projet 
+    📁 pages/ Toutes les pages PHP (dashboard, liste, 
+formulaires…) 
+    📁 includes/ Fichiers réutilisables : header, footer, navbar, 
+fonctions 
+    🗄️ projet.sql Export complet de la base de données (avec 
+données test) 
+    📁 doc/ Documentation du projet 
+        📄 Fiche.pdf FICHE DE VALIDATION ET EVALUATION — 
+Mini Projet 
+        📁 captures/ Captures d'écran de toutes les pages de 
+l'application 
+        📁 diagrammes/ MCD, MLD, … 
+        📄 README.txt Instructions d'installation et de lancement 
+                  📄 captures.pdf Rapport pour les captures  
+ 
+ 
+3.  RÈGLES  
+ 
+Fichier projet.sql — Contenu obligatoire 
+ 
+1. Exporter avec phpMyAdmin : Structure + Données 
+2. Inclure en tête : CREATE DATABASE IF NOT EXISTS et USE nom_bdd; 
+3. Inclure au minimum 3 à 5 enregistrements de test dans chaque table 
+4. Vérifier que le script SQL s'importe sans erreur avant de le remettre 
+ 
+4.  CONTENU DU DOSSIER /doc 
+ 
+ 
+4.1  Captures d'écran  (dossier captures/) 
+ 
+Règles pour les captures : 
+ 
+• Format : PNG ou JPG, résolution lisible (minimum 1024px de large) 
+• Nommage : page_login.png, page_dashboard.png, page_ajout_produit.png… 
+• Capturer toutes les pages de l'application sans exception 
+• Inclure des captures avec données réelles (pas des pages vides) 
+• Insérer les captures dans le rapport avec une légende explicative sous chacune 
+ 
+4.2  Diagrammes  (dossier diagrammes/) 
+ 
+Diagramme Nom de fichier attendu 
+MCD — Modèle Conceptuel de Données mcd.png / mcd.pdf 
+MLD — Modèle Logique de Données mld.png / mld.pdf 
+ 
+ 
+COMPTE D'ACCÈS PAR DÉFAUT 
+ 
+Configurez votre application pour qu'elle accepte le compte suivant sans aucune modification : 
+ 
+Identifiants à insérer dans la base de données 
+Login ENSIASD 
+Mot de passe ENSIASD2026 
+Rôle / Profil Administrateur(accès complet) 
+ 
+✔ Tous les comptes supplémentaires doivent être inclus dans le fichier readme.txt. 
+Je vais  tester tous les rôles sans créer de compte manuellement. 
+ 
+ 
+  
+5.  CHECKLIST FINALE   
+ 
+Code source 
+☐ Le dossier racine porte le nom du projet (pas 'projet1' ou 'test') 
+☐ index.php est présent à la racine 
+☐ config.php est présent et contient la connexion BDD 
+☐ Les dossiers /css, /js, /images, /pages, /includes existent 
+☐ Le fichier projet.sql est complet et s'importe sans erreur 
+☐ Le code PHP est commenté (au minimum les fonctions principales) 
+☐ Les requêtes SQL utilisent des requêtes préparées (PDO) 
+ 
+Dossier /doc 
+☐ Fiche bien remplie 
+☐ Les captures d'écran couvrent toutes les pages de l'application 
+☐ Les captures sont nommées explicitement (pas screenshot1.png) 
+☐ Rapport pdf des captures   
+☐ Le MCD et le MLD sont présents dans le dossier diagrammes/ 
+ 
+Archive & remise 
+☐ L'archive est au format .zip ou .rar 
+☐ L'archive est nommée selon la convention : NomProjet_filiere.zip 
+☐ Le zip a été ouvert et testé : tous les fichiers sont bien présents 
+☐ La remise a été effectuée avant la date et heure limite 
+ 
+ 
+💡  Conseil final : un projet bien organisé et documenté compte autant que le code lui-même. 
+On évalue votre rigueur professionnelle autant que vos compétences techniques. 
+ 
+Bon courage à tous les groupes !  🎓 

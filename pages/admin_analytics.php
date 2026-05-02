@@ -1,32 +1,20 @@
 <?php
-require_once __DIR__ . '/php/functions.php';
+require_once __DIR__ . '/../config.php';
 require_admin('dashboard.php');
 
 $pageTitle = 'Admin Analytics | Roommates App';
 $activePage = 'admin_analytics';
 
-$sevenDayUsersStmt = $pdo->query('SELECT DATE(created_at) AS day, COUNT(DISTINCT user_id) AS active_users FROM activity_logs WHERE created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY) GROUP BY DATE(created_at) ORDER BY day ASC');
-$sevenDayEventsStmt = $pdo->query('SELECT DATE(created_at) AS day, COUNT(*) AS total_events FROM activity_logs WHERE created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY) GROUP BY DATE(created_at) ORDER BY day ASC');
-
-$activeUsers = $sevenDayUsersStmt->fetchAll();
-$eventCounts = $sevenDayEventsStmt->fetchAll();
-
-$conversion = [
-  'users' => fetch_count($pdo, 'SELECT COUNT(*) FROM users'),
-  'listings' => fetch_count($pdo, 'SELECT COUNT(*) FROM listings'),
-  'messages' => fetch_count($pdo, 'SELECT COUNT(*) FROM messages'),
-];
-
-require_once __DIR__ . '/partials/header.php';
-?>
-<section class="surface-card p-4 p-lg-5 mb-4">
-  <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+$sevenDayUsersStmt = $pdo->
+query('SELECT DATE(created_at) AS day, COUNT(DISTINCT user_id) AS active_users FROM activity_logs WHERE created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY) GROUP BY DATE(created_at) ORDER BY day ASC'); $sevenDayEventsStmt = $pdo->query('SELECT DATE(created_at) AS day, COUNT(*) AS total_events FROM activity_logs WHERE created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY) GROUP BY DATE(created_at) ORDER BY day ASC'); $activeUsers = $sevenDayUsersStmt->fetchAll(); $eventCounts = $sevenDayEventsStmt->fetchAll(); $conversion = [ 'users' => fetch_count($pdo, 'SELECT COUNT(*) FROM users'), 'listings' => fetch_count($pdo, 'SELECT COUNT(*) FROM listings'), 'messages' => fetch_count($pdo, 'SELECT COUNT(*) FROM messages'), ]; require_once __DIR__ . '/../includes/header.php'; ?>
+<section class="surface-card p-lg-5 mb-4 p-4">
+  <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
     <div>
       <div class="section-kicker mb-2">Analytics</div>
       <h1 class="h3 mb-0">Weekly activity and conversion signals</h1>
     </div>
-    <form method="post" action="php/admin_export.php" class="m-0">
-      <input type="hidden" name="_csrf" value="<?= e(csrf_token()) ?>">
+    <form method="post" action="../php/admin_export.php" class="m-0">
+      <input type="hidden" name="_csrf" value="<?= e(csrf_token()) ?>" />
       <button class="btn btn-outline-dark" type="submit">Export CSV</button>
     </form>
   </div>
@@ -93,4 +81,4 @@ require_once __DIR__ . '/partials/header.php';
     }
   });
 </script>
-<?php require_once __DIR__ . '/partials/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>
